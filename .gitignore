@@ -49,3 +49,12 @@ Thumbs.db
 # Logs
 # -----------------------------
 *.log
+# Distribution / Build
+dist/
+build/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# IDE
+.idea/
