@@ -4,7 +4,7 @@ from services.validator import validate_file
 from services.saver import save_file
 from services.extractor import extract_text
 from services.chunker import chunk_text
-from services.embeddings import generate_embeddings
+from services.embeddings import generate_document_embeddings
 from services.vectordb import store_embeddings
 router = APIRouter()
 
@@ -25,7 +25,7 @@ async def upload_document(file: UploadFile = File(...)):
     chunks = chunk_text(text)
 
     # Generate Embeddings
-    embeddings = generate_embeddings(chunks)
+    embeddings = generate_document_embeddings(chunks)
 
     # Store in ChromaDB
     total_stored = store_embeddings(

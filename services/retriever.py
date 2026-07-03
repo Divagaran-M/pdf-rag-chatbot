@@ -1,4 +1,4 @@
-from services.embeddings import generate_embeddings
+from services.embeddings import generate_query_embedding
 from services.vectordb import search_embeddings
 
 
@@ -8,8 +8,7 @@ def retrieve_context(question, filename):
     """
 
     # Generate embedding for the question
-    query_embedding = generate_embeddings([question])[0]
-
+    query_embedding = generate_query_embedding(question)
     # Search only inside the selected document
     results = search_embeddings(
         query_embedding=query_embedding,
