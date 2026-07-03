@@ -1,6 +1,6 @@
 import requests
 
-BASE_URL = "http://127.0.0.1:8000"
+BASE_URL = "https://pdf-rag-chatbot-f27t.onrender.com"
 
 
 def upload_pdf(uploaded_file):
