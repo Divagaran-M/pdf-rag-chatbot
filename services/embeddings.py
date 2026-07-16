@@ -35,7 +35,14 @@ def _embed(texts, task):
 
 def generate_document_embeddings(chunks):
     print("Generating document embeddings using Jina AI...")
-    return _embed(chunks, "retrieval.passage")
+
+    print("Chunks received:", len(chunks))
+
+    embeddings = _embed(chunks, "retrieval.passage")
+
+    print("Embeddings returned:", len(embeddings))
+
+    return embeddings
 
 
 def generate_query_embedding(question):

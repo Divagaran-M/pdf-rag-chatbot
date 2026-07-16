@@ -1,6 +1,6 @@
 import requests
 
-BASE_URL = "https://pdf-rag-chatbot-f27t.onrender.com"
+BASE_URL = "http://127.0.0.1:8000"
 
 
 def upload_pdf(uploaded_file):
@@ -20,6 +20,7 @@ def upload_pdf(uploaded_file):
 
     return response
 
+
 def ask_question(question, filename, history):
 
     payload = {
@@ -31,6 +32,18 @@ def ask_question(question, filename, history):
     response = requests.post(
         f"{BASE_URL}/chat",
         json=payload
+    )
+
+    return response
+
+
+def get_suggestions(filename):
+
+    response = requests.post(
+        f"{BASE_URL}/suggestions",
+        json={
+            "filename": filename
+        }
     )
 
     return response
